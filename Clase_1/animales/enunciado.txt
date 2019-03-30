@@ -1,6 +1,6 @@
-Los arácnidos tienen cuatro pared de patas locomotoras
-los insectos son anumales invertebrados que presentan seis patas
-Y las serpientes son reptiles cuya característica princial es la ausencia de patasT
+Los arácnidos tienen cuatro pares de patas locomotoras
+los insectos son animales invertebrados que presentan seis patas
+Y las serpientes son reptiles cuya característica princial es la ausencia de patas
 
 También sabemos que la tarántula, la viuda negra y el alacrán son arácnidos,
 la hormiga, la mosca y la avispa son insectors
