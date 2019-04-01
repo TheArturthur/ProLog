@@ -1,9 +1,3 @@
-%Constructores:
-
-
-
-%Reglas:
-
 %Colores:
 color(am).
 color(v).
@@ -47,5 +41,6 @@ esTorre([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Prof
 
 alturaTorre([pieza(Anchura,Altura,Profundidad,Color)|[]],1).
 
-alturaTorre([pieza(Anchura1,Altura1,Profundidad1,Color1)
+alturaTorre([pieza(Anchura,Altura,Profundidad,Color)|Ps],X) :-
+	resta(X,Altura1,X),
 	
