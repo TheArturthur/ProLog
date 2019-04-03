@@ -38,6 +38,11 @@ esPieza(Anchura,Altura,Profundidad,Color) :-
 
 p([H|T],H,T).
 
+append([], L, L).
+
+append([H|T], L, [H|R]) :-
+	append(T, L, R).
+
 member(X,[X|_]).
 member(X,[_|T]) :- member(X,T).
 
@@ -84,19 +89,12 @@ coloresIncluidos([pieza(Anchura1_1,Altura1_1,Profundidad1_1,Color1_1),pieza(Anch
  listaColores([pieza(_,_,_,Color2_1),pieza(_,_,_,Color2_2)|Ps2],[Colores|Cs]),
  estaColor([pieza(_,_,_,Color1_1),pieza(_,_,_,Color1_2)|Ps1],[Colores|Cs]).
 
-listaColores([pieza(_,_,_,Color)|[]],[Colores|[]]) :-
-	p([Colores|[]],Color,_).
+listaColores([pieza(_,_,_,Color)|[]],[H|T]) :-
+	append([H|T],[Color],[Colores|Cs]).
 
-listaColores([pieza(_,_,_,Color)|[]],[Colores|Cs]) :-
-	p([Colores|Cs],_,Color).
-
-listaColores([pieza(_,_,_,Color1),pieza(_,_,_,Color2)|Ps],[Colores|Cs]) :-
-	p([Colores|Cs],Color1,_),
+listaColores([pieza(_,_,_,Color1),pieza(_,_,_,Color2)|Ps],[H|T]) :-
+	append([H|T],[Color1],[Colores|Cs]),
 	listaColores([pieza(_,_,_,Color2)|Ps],[Colores|Cs]).
-
-listaColores([pieza(_,_,_,Color1),pieza(_,_,_,Color2)|Ps],[Colores|Cs]) :-
-	p([Colores|Cs],_,Color1),
-	listaColores([pieza(_,_,_,Color2)|Ps],[Colores,Cs|NCs].
 
 estaColor([pieza(_,_,_,Color)|[]],[Colores|Cs]) :-
 	member(Color,[Colores|Cs]).
