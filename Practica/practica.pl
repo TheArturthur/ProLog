@@ -32,8 +32,8 @@ esPieza(Anchura,Altura,Profundidad,Color) :-
 
 p([H|T],H,T).
 
-member(X,[X|L]).
-member(X,[_|L]):-member(X,L).
+member(X,[X|_]).
+member(X,[_|T]):-member(X,T).
 
 esTorre([pieza(Anchura,Altura,Profundidad,Color)|[]]) :-
 	esPieza(Anchura,Altura,Profundidad,Color).
@@ -55,12 +55,14 @@ alturaTorre([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,
 	resta(X,Altura1,Y),
 	alturaTorre([pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],Y).
 
-coloresTorre([pieza(Anchura,Altura,Profundidad,Color)|[]],Colores) :-
-	esTorre([pieza(Anchura,Altura,Profundidad,Color)|Colores]),
-	member(Color,Colores).
+coloresTorre([pieza(Anchura,Altura,Profundidad,Color)|[]],[Colores]) :-
+	esTorre([pieza(Anchura,Altura,Profundidad,Color)|[]]),
+	member(Color,[Colores]).
 
-coloresTorre([pieza(Anchura,Altura,Profundidad,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],Colores) :-
-	esTorre([pieza(Anchura,Altura,Profundidad,Color1)|[]]).
+coloresTorre([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],[Colores]) :-
+	esTorre([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps]),
+	member(Color1,[Colores]),
+	coloresTorre([pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],[Colores]).
 
 %coloresIncluidos() :-.
 
