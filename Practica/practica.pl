@@ -19,7 +19,7 @@ suma(0,X,X). %X = X+0.
 suma(s(X),Y,s(Z)) :- suma(X,Y,Z). %Z+1 = X+1+Y
 
 resta(X,0,X).
-resta(s(X),s(Y),Z) :- resta(X,Y,Z).
+resta(s(X),s(Y),Z) :- resta(X,Y,Z). %Z=X-Y
 
 iguales(s(0),s(0)).
 iguales(s(A),s(B)) :- iguales(A,B).
@@ -38,11 +38,8 @@ esPieza(Anchura,Altura,Profundidad,Color) :-
 
 p([H|T],H,T).
 
-addElement(X, [], [X]). 
-addElement(X, [H | Rest], [X,H | Rest]).
-addElement(X, [H | Rest1], [H | Rest2]) :- addElement(X, Rest1, Rest2).
-
 member(X,[X|_]).
+
 member(X,[_|T]) :- member(X,T).
 
 esTorre([pieza(Anchura,Altura,Profundidad,Color)|[]]) :-
@@ -61,18 +58,24 @@ alturaTorre([pieza(Anchura,Altura,Profundidad,Color)|[]],X) :-
 	resta(X,Altura,Y),
 	iguales(s(Y),s(0)).
 
-alturaTorre([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],X) :-
-	esTorre([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps]),
+alturaTorre(Torre,X) :-
+	esTorre(Torre),
 	nat(X),
+	sacarAltura(Torre,X).
+
+sacarAltura([pieza(Anchura[pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],X) :-
 	resta(X,Altura1,Y),
-	alturaTorre([pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],Y).
+	alturaTorre([pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],Y).	  
 
 coloresTorre([pieza(Anchura,Altura,Profundidad,Color)|[]],[Colores|[]]) :-
 	esTorre([pieza(Anchura,Altura,Profundidad,Color)|[]]),
 	member(Color,[Colores]).
 
-coloresTorre([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],[Colores1,Colores2|Cs]) :-
-	esTorre([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps]),
+coloresTorre(Torre,Colores) :-
+	esTorre(Torre),
+	sacarColores(Torre, Colores).
+
+sacarColores([pieza(Anchura1,Altura1,Profundidad1,Color1),pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],[Colores1,Colores2|Cs]) :-
 	member(Color1,[Colores1,Colores2|Cs]),
 	coloresTorre([pieza(Anchura2,Altura2,Profundidad2,Color2)|Ps],[Colores2|Cs]).
 
@@ -84,12 +87,40 @@ coloresIncluidos(Torre1,Torre2) :-
 comprobarColores([],_,_).
 
 comprobarColores([pieza(_,_,_,Color)|Torre1],[pieza(_,_,_,Color)|_],Torre2):-
-	coloresIncluidosRecursivo(Torre1,Torre2,Torre2).
+	comprobarColores(Torre1,Torre2,Torre2).
 
 comprobarColores(Torre1,[_|Torre2],T):-
-	coloresIncluidosRecursivo(Torre1,Torre2,T).
+	comprobarColores(Torre1,Torre2,T).
 
-%esEdificioPar() :- .
 
-%esEdificioPiramide() :- .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%EDIFICIO%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+esEdificioPar([Linea|[]]) :-
+	lineaPar(Linea).
+
+esEdificioPar([Linea1|RestoLineas]) :-
+	lineaPar(Linea1),
+	esEdificioPar(RestoLineas).
+
+lineaPar([]).
+
+lineaPar(Linea) :-
+	longitudLinea(Linea,Longitud),
+	par(Longitud).
+
+longitudLinea(Linea,N) :-
+	longitudSinBlanco(Linea,0,N).
+
+longitudSinBlanco([],N1,N2) :-
+	N2 = N1.
+
+longitudSinBlanco([b|Resto],N1,N2) :-
+	longitudSinBlanco(Resto,N1,N2).
+
+longitudSinBlanco([C|Resto],N1,N2) :-
+	color(C),
+	longitudSinBlanco(Resto,s(N1),N2).
+
+esEdificioPiramide() :- .
 
