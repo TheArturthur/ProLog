@@ -1,3 +1,0 @@
-\babel@toc {spanish}{}
-\contentsline {section}{\numberline {1}\relax $\@@underline {\hbox {C\IeC {\'o}digo empleado y las explicaciones}}\mathsurround \z@ $\relax :}{2}
-\contentsline {section}{\numberline {2}\relax $\@@underline {\hbox {Pruebas realizadas}}\mathsurround \z@ $\relax :}{7}
