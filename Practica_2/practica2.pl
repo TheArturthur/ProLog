@@ -1,5 +1,12 @@
-<(0,Y,0).
-<(X,Y,Z) :- <(X-1,Y-1,M-1).
+suma(X,Y,Z) :- Z is X+Y.
 
 menor(A,B,Comp,M) :-
-	<(A,B,M).
+	M is A, A=<B;
+	M is B, B=<A.
+
+menor_o_igual(X,Y) :-
+	var(X) = Y;
+	var(Y) = X;
+	(nonvar(X), nonvar(Y),
+	 (X @< Y;X = Y, ))
+
