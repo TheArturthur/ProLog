@@ -1,3 +1,6 @@
+
+%Parte 1:
+
 suma(X,Y,Z) :- Z is X+Y.
 
 =<(A,B,M) :-
@@ -13,9 +16,8 @@ menor(A,B,Comp,M) :-
 	(C = =<, =<(A,B,M);
 	    C = >, >(A,B,M)).
 
-% menor_o_igual(X,Y) :-
-%      compare(<,X,Y);
-%      compare(=,X,Y).??????????????????????????????????????????????????????????????
+
+%Parte 2:
 
 menor_o_igual(X,Y) :-
 	menor_o_igual_libre(X,Y);
@@ -45,5 +47,26 @@ menor_o_igual_argumento(X,Y,Term1,Term2,Aridad1,Aridad2) :-
 menor_igual_argumento_rec([],[]).
 
 menor_igual_argumento_rec([Arg1|T1],[Brg1|T2]) :-
-	Arg1 =< Brg1;
+	(Arg1 @< Brg1; Arg1 == Brg1; Arg1 < Brg1);
 	menor_igual_argumento_rec([T1],[T2]).
+
+
+%Parte 3:
+
+listaHojas([],Hojas).
+
+listaHojas([Lista|T],Hojas) :-
+	Rama = t(Lista,nil,nil),
+	append(Hojas,Rama,HojasRes),
+	listaHojas([T],HojasRes).
+
+%hojas_arbol(Hoja,Comp,Arbol) :-
+%	.
+
+%ordenacion(Arbol,Comp,Orden) :-
+%	.
+
+
+	
+%ordenar(Lista,Comp,Orden) :-
+%	.
