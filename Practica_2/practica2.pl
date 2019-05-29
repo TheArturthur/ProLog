@@ -1,29 +1,13 @@
 
 %Parte 1:
 
-=<(A, B, M) :-
-	M is A, A =< B;
-	M is B, B =< A.
-
->(A, B, M) :-
-	M is A, A > B;
-	M is B, B > A.
-
-@=<(A, B, M) :-
-	M is A, A @=< B;
-	M is B, B @=< A.
-
-@>(A, B, M) :-
-	M = A, A @> B;
-	M = B, B @> A.
-
-
 menor(A, B, Comp, M) :-
-	arg(3,menor(A, B, Comp,M ), C),
-	(C = =<, =<(A, B, M);
-	    C = >, >(A, B, M);
-	    C = @=<, @=<(A, B, M);
-	    C = @>, @>(A, B, M)).
+	functor(X, Comp, 2),
+	arg(1,X,A),
+	arg(2,X,B),
+	call(X)->
+	M = A;
+	M = B.
 
 
 %Parte 2:
@@ -57,8 +41,9 @@ menor_igual_argumento_rec([], []).
 
 menor_igual_argumento_rec([Arg1|T1], [Brg1|T2]) :-
 %TODO: Mirar si arg1 y arg2 son numeros antes de la comprobación.
-	(Arg1 @=< Brg1; Arg1 =< Brg1);
-	menor_igual_argumento_rec([T1], [T2]).
+	(number(Arg1), number(Brg1), Arg1 =< Brg1 ;
+	    Arg1 @=< Brg1),
+	menor_igual_argumento_rec(T1, T2).
 
 
 %Parte 3:
@@ -74,18 +59,20 @@ hojas_arbol([H1,H2|T], Comp, Arbol) :-
 	hojasArbolRec([H1,H2|T], Comp, Arbol, _).
 
 hojasArbolRec([tree(A,void,void)], Comp, Arbol, tree(Element,Left,Right)) :-
-	(A =< Element, C = tree(A, tree(A, void, void), tree(Element,Left,Right));
+	menor(A, Element, Comp, M),
+	(M is A, C = tree(A, tree(A, void, void), tree(Element,Left,Right));
 	    C = tree(Element, tree(A, void, void), tree(Element,Left,Right))),
 	Arbol = C.
 
 hojasArbolRec([tree(A,void,void),tree(B,void,void)|T],Comp,Arbol,Tree) :-
-	(A =< B, C = A;
+	menor(A, B, Comp, M),
+	(M is A, C = A;
 	    C = B),
 	Tree = tree(C, tree(A,void,void), tree(B,void,void)),
 	hojasArbolRec(T, Comp, Arbol, Tree).
 
-%ordenacion(Arbol,Comp,Orden) :-
-%	.
+ordenacion(Arbol,Comp,Orden) :-
+	.
 
 
 	
