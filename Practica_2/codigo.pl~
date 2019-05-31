@@ -1,4 +1,6 @@
 
+alumno_prode('Vidal','Pena','Arturo','W140307').
+
 %Parte 1:
 
 menor(A, B, Comp, M) :-
@@ -53,28 +55,44 @@ lista_hojas([], []).
 lista_hojas([H|T], [tree(H, void, void)|Hojas]) :-
 	lista_hojas(T, Hojas).
 
-hojas_arbol([],_,_).
+hojas_arbol([Hoja|Hojas],Comp,Arbol) :-
+	hojasArbolRec(Hojas,Comp,Hoja,Arbol).
 
-hojas_arbol([H1,H2|T], Comp, Arbol) :-
-	hojasArbolRec([H1,H2|T], Comp, Arbol, _).
+hojasArbolRec([],_,Arbol,Arbol).
 
-hojasArbolRec([tree(A,void,void)], Comp, Arbol, tree(Element,Left,Right)) :-
-	menor(A, Element, Comp, M),
-	(M is A, C = tree(A, tree(A, void, void), tree(Element,Left,Right));
-	    C = tree(Element, tree(A, void, void), tree(Element,Left,Right))),
-	Arbol = C.
-
-hojasArbolRec([tree(A,void,void),tree(B,void,void)|T],Comp,Arbol,Tree) :-
-	menor(A, B, Comp, M),
-	(M is A, C = A;
-	    C = B),
-	Tree = tree(C, tree(A,void,void), tree(B,void,void)),
-	hojasArbolRec(T, Comp, Arbol, Tree).
+hojasArbolRec([H|T],Comp,Arbol,Tree) :-
+	arg(1,H,RaizIzq),
+	arg(1,Arbol,Raiz),
+	menor(Raiz,RaizIzq,Comp,M),
+	hojasArbolRec(T,Comp,tree(M,Arbol,H),Tree).
 
 ordenacion(Arbol,Comp,Orden) :-
-	.
+	ordenacion_aux(Arbol,Comp,[],Orden).
 
+ordenacion_aux(tree(Element,void,void),_,Orden,OrdenF) :-
+	append(Orden,[Element],OrdenF).
 
-	
+ordenacion_aux(tree(Element,Left,Right),Comp,Orden,OrdenF) :-
+	append(Orden,[Element],OrdenS),
+	makeList(tree(Element,Left,Right),[],Lista),
+	borraElemento(Element,Lista,Salida),
+	lista_hojas(Salida,Hojas),
+	hojas_arbol(Hojas,Comp,Arbol),
+	ordenacion_aux(Arbol,Comp,OrdenS,OrdenF).
+
+makeList(tree(Element,void,void), Lista, [Element|Lista]).
+
+makeList(tree(_,Left,Right), Lista, ListaSalida) :-
+	Right = tree(ElementRight,_,_),
+	append(Lista,[ElementRight],Lista2),
+	makeList(Left,Lista2,ListaSalida).
+
+borraElemento(_,[],[]).
+
+borraElemento(Elemento,[Elemento|T],[T]).
+
+borraElemento(Elemento,[H|T1],[H|T2]) :-
+	borraElemento(Elemento,T1,T2).
+
 %ordenar(Lista,Comp,Orden) :-
 %	.
