@@ -22,8 +22,8 @@ menor_o_igual(X, Y) :-
 	     menor_o_igual_argumento(X, Y, Term1, Term2, Aridad1, Aridad2))).
 
 menor_o_igual_libre(X, Y) :-
-	var(X) = Y;
-	var(Y) = X.
+	var(X), X = Y;
+	var(Y), Y = X.
 
 menor_nombre(Term1, Term2) :-
 	Term1 @< Term2.
