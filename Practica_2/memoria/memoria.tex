@@ -12,11 +12,13 @@ hidelinks]{hyperref}
 \usepackage{amsmath}
 \usepackage{txfonts}
 \usepackage{mathdots}
-\usepackage{graphicx}
-\usepackage{float}
+
+\usepackage{multicol}
 
 % --- IMAGES ---
-\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfigure}
 \DeclareGraphicsExtensions{.png,.jpg,.pdf,.mps,.gif,.bmp}
 % --- IMAGES ---
 
@@ -234,6 +236,18 @@ Este predicado llama a \textit{lista\_hojas/2}, \textit{hojas\_arbol/3} y \texti
 \newpage
 
 \section{Pruebas realizadas}
+\subsection{menor/2}
+\begin{multicols}{2}
+	\begin{figure}[H]
+		\centering
+		\includegraphics{images/menor1.png}
+		\caption{3 $\leq$ 4}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics{images/menor2.png}
+		\caption{3 $>$ 4}
+	\end{figure}
+\end{multicols}
 
 
 \newpage
