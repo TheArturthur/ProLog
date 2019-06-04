@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.5.22)  4 JUN 2019 14:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.5.22)  4 JUN 2019 14:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -802,51 +802,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
-(./codeFiles/borraElemento.pl) (./codeFiles/ordenar.pl) [4]
-Overfull \hbox (3.70622pt too wide) in paragraph at lines 290--291
-[]\OT1/txr/m/n/12 esTorre([pieza(s(s(s(0))),s(s(s(0))),s(s(s(0))),am),pieza(s(s
-(s(0))),s(s(s(0))),s(s(s(0))),v)]) 
+(./codeFiles/borraElemento.pl) (./codeFiles/ordenar.pl) [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
+
  []
 
-[5]
-Overfull \hbox (34.03023pt too wide) in paragraph at lines 297--298
-[]\OT1/txr/m/n/12 alturaTorre([pieza(s(0),s(0),s(0),r),pieza(s(0),s(0),s(0),r),
-pieza(s(0),s(s(0)),s(0),r)],s(s(s(s(0))))) 
- []
-
-
-Overfull \hbox (46.88222pt too wide) in paragraph at lines 304--305
-[]\OT1/txr/m/n/12 coloresTorre([pieza(s(0),s(s(0)),s(0),am),pieza(s(0),s(0),s(0
-),r),pieza(s(0),s(s(0)),s(0),a)],[am,r,a]) 
- []
-
-
-Overfull \hbox (28.34222pt too wide) in paragraph at lines 310--311
-[]\OT1/txr/m/n/12 coloresIncluidos([pieza(s(0),s(0),s(0),a),pieza(s(0),s(0),s(0
-),a)],[pieza(s(s(0)),s(0),s(s(0)),a)]), 
- []
-
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 245.
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
-
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 335.
-[7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 335.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 245.
  (./memoria.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 335.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 335.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 245.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 245.
 Package rerunfilecheck Info: File `memoria.out' has not changed.
 (rerunfilecheck)             Checksum: 333892F0D99FEA5EEDEEDCE8F78BE3FC;1447.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 335.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 245.
  ) 
 Here is how much of TeX's memory you used:
- 10993 strings out of 492615
- 158385 string characters out of 6131390
+ 10981 strings out of 492615
+ 158311 string characters out of 6131390
  320122 words of memory out of 5000000
  14565 multiletter control sequences out of 15000+600000
  51434 words of font info for 122 fonts, out of 8000000 for 9000
@@ -861,10 +837,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on memoria.pdf (8 pages, 79510 bytes).
+Output written on memoria.pdf (7 pages, 77523 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 277 compressed objects within 3 object streams
- 127 named destinations out of 1000 (max. 500000)
+ 282 PDF objects out of 1000 (max. 8388607)
+ 261 compressed objects within 3 object streams
+ 115 named destinations out of 1000 (max. 500000)
  145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

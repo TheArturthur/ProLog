@@ -16,4 +16,4 @@
 \contentsline {subsubsection}{\numberline {1.5.3}Predicado borraElemento/3}{4}{subsubsection.1.5.3}% 
 \contentsline {subsection}{\numberline {1.6}Predicado ordenar/3}{4}{subsection.1.6}% 
 \contentsline {section}{\numberline {2}Pruebas realizadas}{5}{section.2}% 
-\contentsline {section}{\numberline {3}Comentarios adicionales}{7}{section.3}% 
+\contentsline {section}{\numberline {3}Comentarios adicionales}{6}{section.3}% 
