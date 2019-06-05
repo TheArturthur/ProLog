@@ -16,5 +16,10 @@
 \contentsline {subsubsection}{\numberline {1.5.3}Predicado borraElemento/3}{4}{subsubsection.1.5.3}% 
 \contentsline {subsection}{\numberline {1.6}Predicado ordenar/3}{4}{subsection.1.6}% 
 \contentsline {section}{\numberline {2}Pruebas realizadas}{5}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}menor/2}{5}{subsection.2.1}% 
-\contentsline {section}{\numberline {3}Comentarios adicionales}{6}{section.3}% 
+\contentsline {subsection}{\numberline {2.1}menor/4}{5}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}menor\_o\_igual/2}{5}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}lista\_hojas/2}{5}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}hojas\_arbol/3}{6}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}ordenacion/3}{6}{subsection.2.5}% 
+\contentsline {subsection}{\numberline {2.6}ordenar/3}{6}{subsection.2.6}% 
+\contentsline {section}{\numberline {3}Comentarios adicionales}{7}{section.3}% 

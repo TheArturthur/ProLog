@@ -236,18 +236,74 @@ Este predicado llama a \textit{lista\_hojas/2}, \textit{hojas\_arbol/3} y \texti
 \newpage
 
 \section{Pruebas realizadas}
-\subsection{menor/2}
+\subsection{menor/4}
 \begin{multicols}{2}
 	\begin{figure}[H]
 		\centering
 		\includegraphics{images/menor1.png}
-		\caption{3 $\leq$ 4}
+		\caption{Probamos \textit{menor/4} con 3 y 4 y criterio de comparación `$\leq$': \textbf{Resultado correcto} (3 $\leq$ 4)}
 	\end{figure}
 	\begin{figure}[H]
 		\includegraphics{images/menor2.png}
-		\caption{3 $>$ 4}
+		\caption{Probamos \textit{menor/4} con 3 y 4 y criterio de comparación `$>$': \textbf{Resultado correcto} (4 $>$ 3)}
 	\end{figure}
 \end{multicols}
+
+\subsection{menor\_o\_igual/2}
+\begin{multicols}{2}
+	\begin{figure}[H]
+		\centering
+		\includegraphics{images/menorIgual1.png}
+		\caption{Probamos \textit{menor\_o\_igual/2} con la variable libre `X' y 2: \textbf{Resultado correcto} (X = 2)}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[scale=0.75]{images/menorIgual2.png}
+		\caption{Probamos \textit{menor\_o\_igual/2} con las variables libres `X' e `Y': \textbf{Resultado correcto} (X = Y)}
+	\end{figure}
+\end{multicols}
+
+\begin{multicols}{2}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{images/menorIgual3.png}
+	\caption{Probamos \textit{menor\_o\_igual/2} con `a(2,3)' y `b(2,3)': \textbf{Resultado correcto} (a(2,3) $\leq$ b(2,3))}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{images/menorIgual4.png}
+	\caption{Probamos \textit{menor\_o\_igual/2} con `a(2,3)' y `a(1,3)', y con `a(1,2)' y `a(1,3)': \textbf{Resultado correcto} (a(2,3) $\nleq$ a(1,3); a(1,2) $\leq$ a(1,3))}
+\end{figure}
+\end{multicols}
+
+\subsection{lista\_hojas/2}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{images/listaHojas.png}
+	\caption{Probamos \textit{lista\_hojas/2} con la lista [1,2,3,4]: \textbf{Resultado correcto}}
+\end{figure}
+
+\subsection{hojas\_arbol/3}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{images/hojasArbol.png}
+	\caption{Probamos \textit{hojas\_arbol/3} con la lista (\textit{Hojas}) de la prueba anterior: \textbf{Resultado correcto}}
+\end{figure}
+
+
+\subsection{ordenacion/3}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{images/ordenacion.png}
+	\caption{Probamos \textit{ordenacion/3} con la lista (\textit{Hojas}) que da el árbol (\textit{Arbol}) de las pruebas anteriores, y criterio de comparación '$\leq$': \textbf{Resultado correcto}}
+\end{figure}
+
+
+\subsection{ordenar/3}
+\begin{figure}[H]
+	\centering
+	\includegraphics{images/ordenar.png}
+	\caption{Probamos \textit{ordenar/3} con la lista [1,2,3,4] y criterio de comparación '$\leq$': \textbf{Resultado correcto}}
+\end{figure}
 
 
 \newpage
